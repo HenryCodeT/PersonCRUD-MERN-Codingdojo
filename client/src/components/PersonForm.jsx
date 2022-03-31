@@ -29,7 +29,7 @@ const PersonForm = (props) => {
     }
     
     return(
-        <div>
+        <div className='col-4 mx-auto'>
             <form onSubmit={handleCreatePerson}>
                 <div className="form-group">
                     <label className="form-label" htmlFor="firstName">First Name</label>

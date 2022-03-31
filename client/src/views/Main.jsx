@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
-import PersonForm from './PersonForm';
-import PersonList from './PersonList';
+import PersonForm from '../components/PersonForm';
+import PersonList from '../components/PersonList';
 
 const Main = () =>{
     const [message, setMessage] = useState("...Lodading");
@@ -16,6 +16,7 @@ const Main = () =>{
         <div>
             <h1>Message from the backend: {message}</h1>
             <PersonForm/>
+            <hr />
             <PersonList/>
         </div>
     )

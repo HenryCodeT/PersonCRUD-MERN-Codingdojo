@@ -66,10 +66,41 @@ const updatePerson = (request, response) => {
         })
 }
 
+/**
+ * Find person by Id
+ * @param {*} request 
+ * @param {*} response 
+ */
+const findPerson = (request, response) =>{
+    console.log("Controller-retrieve-person");
+    Person.findById(request.params.id)
+        .then(person => {
+            response.statusMessage = 'Person Found'
+            response.status(200).json({person})
+        })
+        .catch(err=>{
+            response.statusMessage = 'Something Went Wrong'
+            response.status(200).json({error:err})
+        })
+}
+/**
+ * Delete a person by id
+ * @param {*} request 
+ * @param {*} response 
+ */
+const deletePerson = (request,response) => {
+    console.log("Controller-Delete-Person");
+    Person.findByIdAndDelete(request.params.id)
+        .then(()=>response.status(204).end())
+        .catch(err=>response.status(400).end())
+}
+
 module.exports = {
     index,
     createPerson,
     findAllPeople,
-    updatePerson
+    updatePerson,
+    findPerson,
+    deletePerson
 }
 console.log("--------------- 4-Controler ------------------");
